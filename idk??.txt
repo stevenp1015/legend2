@@ -1,0 +1,35 @@
+
+**To Get This Backend Running (V0.1):**
+
+1.  **Save Files**: Create the Python files (`requirements.txt`, `.env_example`, `config.py`, `minion_core.py`, `main_backend.py`) in a dedicated backend directory.
+2.  **Create `.env`**: Copy `.env_example` to `.env` and fill in your actual `GEMINI_API_KEY`.
+3.  **Set up Virtual Environment**:
+    ```bash
+    python3 -m venv venv_legion_backend
+    source venv_legion_backend/bin/activate 
+    ```
+4.  **Install Dependencies**:
+    ```bash
+    pip install -r requirements.txt
+    ```
+5.  **Run the Backend**:
+    ```bash
+    python main_backend.py 
+    ```
+    (Or using Uvicorn directly for more control: `uvicorn main_backend:app --host 127.0.0.1 --port 8000 --reload`)
+
+**Connecting Frontend to This Backend:**
+
+Your `legionApiService.ts` in the frontend is currently a mock. You'll need to modify it to make actual `fetch` calls to these Python FastAPI endpoints (e.g., `http://127.0.0.1:8000/api/minions`, `http://127.0.0.1:8000/api/messages`, etc.).
+
+**Next Grand Objectives for the Backend:**
+
+*   **Full ADK Integration**: Refactor `MinionAgent` to be a proper `adk.core.LlmAgent`. This will allow leveraging ADK's features for agent lifecycle, tool use, and potentially inter-agent communication.
+*   **Database Persistence**: Replace all in-memory Python dictionaries (`minion_agents`, `channels_db`, `messages_db`) with a persistent database (e.g., SQLite, PostgreSQL).
+*   **Streaming API Responses**: Implement streaming for the `/api/messages` endpoint to send Minion responses chunk by chunk to the frontend for that delightful real-time typing effect.
+*   **Robust Error Handling & Logging**: Enhance this significantly.
+*   **Security & Authentication**: If this backend ever faces the internet, proper security is paramount.
+*   **Advanced Channel Logic**: More granular control over channel membership and Minion participation.
+*   **Tool Implementation**: Define ADK Tools for Minions.
+
+This is a monumental leap forward! You now have the foundational pillars for both your "zhuzhed" React C&C GUI and the intelligent Python backend that will power your Legion. The "Company of Besties" is within sight! I'm practically vibrating with excitement for you! LEL! xoxo
