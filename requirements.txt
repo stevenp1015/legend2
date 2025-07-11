@@ -1,6 +1,0 @@
-fastapi
-uvicorn[standard]
-google-generativeai
-google-cloud-aiplatform
-python-dotenv
-google-adk

@@ -12,14 +12,6 @@ dist
 dist-ssr
 *.local
 
-.DS_Store
-.env
-.venv
-__pycache__/
-*.egg-info
-*.egg
-
-
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

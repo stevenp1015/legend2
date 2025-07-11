@@ -4,17 +4,14 @@ import logging
 import json
 from typing import Dict, Any, Optional, Tuple, Union, cast
 
-from google.adk.agents import LlmAgent, BaseAgent
-from google.adk.models.llm_request import LlmRequest
-from google.adk.models import BaseLlm
-from google.adk.models.llm_response import LlmResponse
-from google.adk.agents.readonly_context import ReadonlyContext
-from google.adk.agents.callback_context import CallbackContext
-from google.genai import types as genai_types
-from google.generativeai.types import Content, Part, GenerateContentConfig
+from google.adk.agents import LlmAgent, BaseAgent, ReadonlyContext, CallbackContext
+from google.adk.models import LlmRequest, LlmResponse, BaseLlm
+# Corrected import: google.generativeai.types is the module, then specific classes
+from google.generativeai import types as genai_types
+from google.generativeai.types import Content, Part, GenerateContentConfig, FunctionCall # Added FunctionCall
 
-from config import settings # Assuming this still holds LEGION_COMMANDER_NAME and prompt templates
-                             # We'll need to ensure prompt templates are accessible.
+from config import settings
+
 
 # Configure logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')

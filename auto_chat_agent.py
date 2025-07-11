@@ -2,11 +2,12 @@ import asyncio
 import logging
 import json
 from typing import Any, Dict, List, Optional, AsyncGenerator
+from datetime import datetime, timezone # Added missing imports
 
-from google.adk.agents import BaseAgent, InvocationContext
+from google.adk.agents import BaseAgent, InvocationContext # Assuming InvocationContext is correctly here
 from google.adk.events import Event
 from google.adk.runners import Runner
-from google.genai.types import Content, Part, GenerateContentConfig
+from google.generativeai.types import Content, Part, GenerateContentConfig
 
 from config import settings # Assuming access to LEGION_COMMANDER_NAME
 from minion_core import MinionAdkAgent, ManagedApiKeyLlm
